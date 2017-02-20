@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using System.Collections.Generic;
 
 namespace firstcore
 {
@@ -32,13 +33,14 @@ namespace firstcore
         {
             services.AddSingleton(Configuration);
             services.AddSingleton<IGreeter, Greeter>();
+            services.AddSingleton<IGreeter, Damien>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, 
             IHostingEnvironment env, 
             ILoggerFactory loggerFactory,
-            IGreeter greeter)
+            IEnumerable<IGreeter> greeters)
         {
             loggerFactory.AddConsole();
 
@@ -48,16 +50,23 @@ namespace firstcore
             }
             else
             {
-                app.Run(async ctx=>await ctx.Response.WriteAsync("something bad happened"));
+                app.UseExceptionHandler(new ExceptionHandlerOptions {
+                    ExceptionHandler = context => context.Response.WriteAsync("somessthing bad happened")
+                });
             }
 
             app.UseWelcomePage("/welcome");
 
             app.Run(async (context) =>
             {
-                //throw new InvalidOperationException("bad");
-                var message = greeter.GetGreeting();
-                await context.Response.WriteAsync(message);
+                // throw new InvalidOperationException("bad");
+                foreach (var g in greeters)
+                {
+                    var m = g.GetGreeting();
+                    await context.Response.WriteAsync($"{m}\n");
+                }
+                
+                
             });
         }
     }
