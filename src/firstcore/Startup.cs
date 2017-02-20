@@ -46,9 +46,16 @@ namespace firstcore
             {
                 app.UseDeveloperExceptionPage();
             }
+            else
+            {
+                app.Run(async ctx=>await ctx.Response.WriteAsync("something bad happened"));
+            }
+
+            app.UseWelcomePage("/welcome");
 
             app.Run(async (context) =>
             {
+                //throw new InvalidOperationException("bad");
                 var message = greeter.GetGreeting();
                 await context.Response.WriteAsync(message);
             });
