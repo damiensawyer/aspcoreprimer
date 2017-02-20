@@ -30,11 +30,15 @@ namespace firstcore
         // For more information on how to configure your application, visit http://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-
+            services.AddSingleton(Configuration);
+            services.AddSingleton<IGreeter, Greeter>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+        public void Configure(IApplicationBuilder app, 
+            IHostingEnvironment env, 
+            ILoggerFactory loggerFactory,
+            IGreeter greeter)
         {
             loggerFactory.AddConsole();
 
@@ -45,7 +49,7 @@ namespace firstcore
 
             app.Run(async (context) =>
             {
-                var message = this.Configuration["Greeting"];
+                var message = greeter.GetGreeting();
                 await context.Response.WriteAsync(message);
             });
         }

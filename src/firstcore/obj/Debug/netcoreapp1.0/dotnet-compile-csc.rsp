@@ -123,5 +123,7 @@
 -r:"C:\Users\Damien Sawyer\.nuget\packages\System.Xml.ReaderWriter\4.3.0\ref\netstandard1.3\System.Xml.ReaderWriter.dll"
 -r:"C:\Users\Damien Sawyer\.nuget\packages\System.Xml.XDocument\4.3.0\ref\netstandard1.3\System.Xml.XDocument.dll"
 -resource:"c:\temp\firstcore\src\firstcore\obj\Debug\netcoreapp1.0\firstcoredotnet-compile.deps.json",firstcore.deps.json
+"c:\temp\firstcore\src\firstcore\Greeter.cs"
+"c:\temp\firstcore\src\firstcore\IGreeter.cs"
 "c:\temp\firstcore\src\firstcore\Program.cs"
 "c:\temp\firstcore\src\firstcore\Startup.cs"
