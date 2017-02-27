@@ -1,6 +1,6 @@
 namespace firstcore
 {
-    public class Damien : IGreeter
+    public class DamienGreeter : IGreeter
     {
         public string GetGreeting()
         {
