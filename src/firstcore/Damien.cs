@@ -1,5 +1,3 @@
-using System;
-
 namespace firstcore
 {
     public class Damien : IGreeter

@@ -27,9 +27,11 @@ namespace firstcore
         // For more information on how to configure your application, visit http://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddMvc(); //http://stackoverflow.com/a/40097363/494635
             services.AddSingleton(Configuration);
             services.AddSingleton<IGreeter, Greeter>();
             services.AddLogging();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -51,20 +53,25 @@ namespace firstcore
                     ExceptionHandler = context => context.Response.WriteAsync("somessthing bad happened")
                 });
             }
+            
+            
+            //app.UseDefaultFiles(); // sets the file to the default... eg index.html
+            //app.UseStaticFiles(); // renders file. YOU NEED BOTH
+            // OR.. .just go 
+            app.UseFileServer(); // this is default + static
+            app.UseMvcWithDefaultRoute();
 
-            app.UseWelcomePage("/welcome");
+            // app.UseWelcomePage("/welcome");
 
-            app.Run(async (context) =>
-            {   
-                // throw new InvalidOperationException("bad");
-                foreach (var g in greeters)
-                {
-                    var m = g.GetGreeting();
-                    await context.Response.WriteAsync($"{m}\n");
-                }
-                
-                
-            });
+            // app.Run(async (context) =>
+            // {   
+            //     // throw new InvalidOperationException("bad");
+            //     foreach (var g in greeters)
+            //     {
+            //         var m = g.GetGreeting();
+            //         await context.Response.WriteAsync($"{m}\n");
+            //     }
+            // });
         }
     }
 }
