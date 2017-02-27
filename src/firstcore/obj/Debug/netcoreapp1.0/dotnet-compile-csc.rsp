@@ -9,6 +9,8 @@
 -nologo
 "/Users/damiensawyer/code/aspcoreprimer/src/firstcore/obj/Debug/netcoreapp1.0/dotnet-compile.assemblyinfo.cs"
 -out:"/Users/damiensawyer/code/aspcoreprimer/src/firstcore/bin/Debug/netcoreapp1.0/firstcore.dll"
+-r:"/Users/damiensawyer/.nuget/packages/Autofac/4.0.0/lib/netstandard1.1/Autofac.dll"
+-r:"/Users/damiensawyer/.nuget/packages/Autofac.Extensions.DependencyInjection/4.0.0/lib/netstandard1.1/Autofac.Extensions.DependencyInjection.dll"
 -r:"/Users/damiensawyer/.nuget/packages/Microsoft.AspNetCore.Antiforgery/1.1.0/lib/netstandard1.3/Microsoft.AspNetCore.Antiforgery.dll"
 -r:"/Users/damiensawyer/.nuget/packages/Microsoft.AspNetCore.Authorization/1.1.0/lib/netstandard1.3/Microsoft.AspNetCore.Authorization.dll"
 -r:"/Users/damiensawyer/.nuget/packages/Microsoft.AspNetCore.Cors/1.1.0/lib/netstandard1.3/Microsoft.AspNetCore.Cors.dll"
