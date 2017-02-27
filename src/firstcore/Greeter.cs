@@ -16,7 +16,7 @@ namespace firstcore
 
         public string GetGreeting()
         {
-            this._logger.LogTrace($"getting message {i}");
+            this._logger.LogTrace($"getting message {_greeter}");
             return $"hello from the {_greeter} {_greeter} {_greeter} {_greeter}";
         }
     }
