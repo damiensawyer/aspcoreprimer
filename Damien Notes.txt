@@ -1,0 +1,1 @@
+- In VSCode on Mac and Windows. Make sure you set the root folder as src/firstcore. That is, the folder which you open. Otherwise it cant' find settings
