@@ -7,7 +7,6 @@
 --suppress-warning:CS1702
 --suppress-warning:CS1705
 --optimize:False
---debug-type:portable
 --emit-entry-point:True
 --output-name:firstcore
 --file-version:1.0.0.0

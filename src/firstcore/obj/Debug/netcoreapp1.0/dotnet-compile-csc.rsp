@@ -4,7 +4,7 @@
 -nowarn:CS1701
 -nowarn:CS1702
 -nowarn:CS1705
--debug:portable
+-debug:full
 -nostdlib
 -nologo
 "c:\temp\firstcore\src\firstcore\obj\Debug\netcoreapp1.0\dotnet-compile.assemblyinfo.cs"
