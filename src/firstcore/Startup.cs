@@ -41,7 +41,7 @@ namespace firstcore
         {
             var builder = new ContainerBuilder();
             services.AddSingleton(Configuration);
-            services.AddMvc(); 
+            services.AddMvc(); //http://stackoverflow.com/a/40097363/494635
             services.AddLogging();
             //services.AddSingleton<IGreeter, Greeter>();
         
