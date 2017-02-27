@@ -1,6 +1,6 @@
 {
     "version": "0.1.0",
-    "command": "dotnet",
+    "command": "cmd",
     "isShellCommand": true,
     "args": [],
     "tasks": [
