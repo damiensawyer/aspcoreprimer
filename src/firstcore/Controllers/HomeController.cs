@@ -4,9 +4,14 @@ using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 public class HomeController : Controller
 {
-    public string Index()
+    // public string Index()
+    // {
+    //     return "hello from Controller";
+    // }
+
+    public IActionResult Index()
     {
-        return "hello from Controller";
+        return View();
     }
 
     public IActionResult stuff()
@@ -27,17 +32,6 @@ public class HomeController : Controller
     public string[] random(string id)
     {
         var rnd = new Random(DateTime.Now.Millisecond);
-        return Enumerable.Range(0, 20000).Select(x => $"hello {id} {rnd.Next(20000)}").ToArray();
+        return Enumerable.Range(0, 100).Select(x => $"hello {id} {rnd.Next(20000)}").ToArray();
     }
-}
-
-public class Person
-{
-    public Person(string name, int age)
-    {
-        this.Age = age;
-        this.Name = name;
-    }
-    public int Age { get; set; }
-    public string Name { get; set; }
 }
