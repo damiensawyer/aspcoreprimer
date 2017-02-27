@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
@@ -32,6 +28,7 @@ namespace firstcore
         {
             services.AddSingleton(Configuration);
             services.AddSingleton<IGreeter, Greeter>();
+            services.AddLogging();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -40,15 +37,16 @@ namespace firstcore
             ILoggerFactory loggerFactory,
             IGreeter greeter)
         {
-            loggerFactory.AddConsole();
-
+            loggerFactory.AddConsole(LogLevel.Trace);
+            
+            app.UseWelcomePage("/welcome");
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-            }
+            }   
 
             app.Run(async (context) =>
-            {
+            {   
                 var message = greeter.GetGreeting();
                 await context.Response.WriteAsync(message);
             });

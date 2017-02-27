@@ -27,7 +27,8 @@
 
   "buildOptions": {
     "emitEntryPoint": true,
-    "preserveCompilationContext": true
+    "preserveCompilationContext": true,
+    "debugType": "portable" /*put this in to allow omnisharp debug http://stackoverflow.com/a/38424161/494635*/
   },
 
   "runtimeOptions": {
