@@ -38,6 +38,6 @@ public class HomeController : Controller
     public string[] random(string id)
     {
         var rnd = new Random(DateTime.Now.Millisecond);
-        return Enumerable.Range(0, 100).Select(x => $"hello {id} {rnd.Next(20000)}").ToArray();
+        return Enumerable.Range(0, 100).Select(x => $"why, hello {id} {rnd.Next(20000)}").ToArray();
     }
 }
