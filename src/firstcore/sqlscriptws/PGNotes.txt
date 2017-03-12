@@ -1,0 +1,27 @@
+To get PG running on MAC 
+- had to tools--> server configuration --> postgresql.conf and set listen addresses to * 
+- had to tools--> server configuration --> pg_hba.conf and add a record for md5. This is basically disconnecting the server from any linux security and allowing users to just log in with their Username and password This edits files in /Users/damiensawyer/Library/Application Support/Postgres/var-9.3 adding the following row. 
+host	 all	 all	 0.0.0.0/0	 md5
+
+
+-- This was a mission. You have to reference a body parser
+http://stackoverflow.com/a/7053739/494635
+
+
+
+-- Using PSQL
+\?  - help
+\h  - command help
+\d  - list tables
+\dS - list system tables
+\q quit
+
+Create Postgres User:
+CREATE ROLE damien WITH SUPERUSER LOGIN;
+note that you need to specify a database when loging in with psql. I think that, by default, pg creates a db with the first users name. so, to login where the database is dylandesilva
+psql -d dylandesilva -U damien
+... or psql -U "damien" -d "dylandesilva"
+
+-- importing database from script: 
+First I needed to create the teenstar db... then had to run this.
+psql -U postgres -d teenstar -a -f c:\code\serverteenstar\sqlscriptws\create.sql
