@@ -16,3 +16,4 @@ See this.
 https://github.com/dotnet/cli/issues/4683
 
 I updated from dotnet preview 0.99999999 to v1.0.4 and it broke this project. I suspect due to the project.json obsolencence.
+See https://docs.microsoft.com/en-us/dotnet/core/migration/
