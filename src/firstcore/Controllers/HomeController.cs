@@ -26,8 +26,8 @@ public class HomeController : Controller
 
     public IActionResult stuff()
     {
-        var result = new[] { 
-            new Person("Bek", 35), 
+        var result = new[] {
+            new Person("Bek", 35),
             new Person("Damien", 43),
             new Person($"{this.greeter.GetGreeting()}",50)
             };
@@ -49,22 +49,22 @@ public class HomeController : Controller
         return Enumerable.Range(0, 100).Select(x => $"why, hello {id} {rnd.Next(20000)}").ToArray();
     }
 
-[Route("/contacts")]
+    [Route("/contacts")]
     public async Task<IActionResult> GetContacts()
     {
-    var connstring = configuration["DBInfo:ConnectionString"];
-    var connection =  new NpgsqlConnection(connstring);
-     using (IDbConnection dbConnection = connection)
-            {
-                dbConnection.Open();
-                var r = await dbConnection.QueryAsync<Contact>("select * from Contact;");
-                return new ObjectResult(r);
-            }
+        var connstring = configuration["DBInfo:ConnectionString"];
+        var connection = new NpgsqlConnection(connstring);
+        using (IDbConnection dbConnection = connection)
+        {
+            dbConnection.Open();
+            var r = await dbConnection.QueryAsync<Contact>("select * from Contact;");
+            return new ObjectResult(r);
+        }
     }
 }
 
 public class Contact
 {
     public Guid id { get; set; }
-    public DateTime  date { get; set; }
+    public DateTime date { get; set; }
 }
